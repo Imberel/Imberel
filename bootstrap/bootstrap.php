@@ -16,6 +16,10 @@ function cons(mixed $heystack)
     \define(\trim($key), \trim($value));
 }
 
+function isession_start()
+{
+}
+
 function config()
 {
     $dir = ROOTDIR . '/config/';

@@ -2,7 +2,7 @@
 
 return [
 
-    cons('SESSION_TABLE,
+    env('SESSION_TABLE,
     sessions'),
 
     env('HTTP_USER_AGENT,'
