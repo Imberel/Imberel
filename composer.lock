@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "032f583c3e8198ab9d06d4f64d89bcce",
+    "packages": [
+        {
+            "name": "imberel/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Imberel/Core.git",
+                "reference": "bafca9646d1eb0ec2298b099d0b4b1610f0bd1b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Imberel/Core/zipball/bafca9646d1eb0ec2298b099d0b4b1610f0bd1b3",
+                "reference": "bafca9646d1eb0ec2298b099d0b4b1610f0bd1b3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "default-branch": true,
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Imberel\\Imberel\\Core\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Binkap S",
+                    "email": "real.desert.tiger@gmail.com"
+                }
+            ],
+            "description": "Imberel framework core",
+            "keywords": [
+                "core",
+                "imberel"
+            ],
+            "support": {
+                "issues": "https://github.com/Imberel/Core/issues",
+                "source": "https://github.com/Imberel/Core/tree/master"
+            },
+            "time": "2021-11-12T14:05:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "imberel/core": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
