@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     cons('SESSION_TABLE,
     sessions'),
 

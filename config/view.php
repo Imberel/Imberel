@@ -2,13 +2,16 @@
 
 return [
     env('VIEWS_DIR,' .
-        ROOTDIR . '/app/resources/views/'),
+        ROOTDIR . '/resources/views/'),
 
     env('LAYOUTS_DIR,' .
-        ROOTDIR . '/app/resources/views/layouts/'),
+        ROOTDIR . '/resources/views/layouts/'),
+
+    env('LAYOUT_PREFIX,
+        __layout.'),
 
     env('LAYOUT_EXTENSION,
-        __layout.php'),
+        .php'),
 
     env('VIEW_EXTENSION,
         .brick.php'),

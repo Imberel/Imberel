@@ -52,7 +52,23 @@ function javascript()
     }
 }
 
+function route(Imberel\Imberel\Core\Application\Core $app)
+{
+    $router = $app->router;
+    $dir = ROOTDIR . '/routes/';
+    $routes = \scandir($dir, \SORT_DESC);
+    foreach ($routes as $route) {
+        if ($route === '.' || $route === '..') {
+            continue;
+        }
+        require_once $dir . $route;
+    }
+}
+
 function bootstrap()
 {
+
+    \error_reporting(E_ERROR);
     config();
+    \restore_error_handler();
 }
