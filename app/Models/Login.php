@@ -27,11 +27,17 @@ class Login extends Model
 
     public function login()
     {
-        $user = $this->getUser();
-        $key = $this->key();
-        $value = $user->{$key};
-        $this->session->set($value, 1);
-        return true;
+        if ($this->request->isPost()) {
+            $this->load($this->request->body());
+            if ($this->validate()) {
+                $user = $this->getUser();
+                $key = $this->key();
+                $value = $user->{$key};
+                $this->session->set($value, 1);
+                $this->response->redirect("/user");
+            }
+        }
+        return;
     }
 
     public function getUser(): object

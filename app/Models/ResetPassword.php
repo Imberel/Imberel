@@ -20,9 +20,15 @@ class ResetPassword extends Model
         parent::__construct();
     }
 
-    public function reset()
+    public function resetPassword()
     {
-        return true;
+        if ($this->request->isPost()) {
+            $this->load($this->request->body());
+            if ($this->validate()) {
+                # co
+            }
+        }
+        return;
     }
 
     public function tableName(): string

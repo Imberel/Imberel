@@ -17,18 +17,13 @@ class AuthController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->title(getenv('APP_NAME') . " | Auth");
     }
 
     public function register()
     {
         $model = new Register;
-        if ($this->request->isPost()) {
-            $model->loadData($this->request->body());
-            if ($model->validate() && $model->register()) {
-                $this->response->redirect("/login");
-            }
-        }
-        $this->title(getenv('APP_NAME') . " | Sign Up");
+        $model->register();
         return $this->view->render(
             "register",
             [
@@ -40,13 +35,7 @@ class AuthController extends Controller
     public function login()
     {
         $model = new Login;
-        if ($this->request->isPost()) {
-            $model->loadData($this->request->body());
-            if ($model->validate() && $model->login()) {
-                $this->response->redirect("/user");
-            }
-        }
-        $this->title(getenv('APP_NAME') . " | Sign In");
+        $model->login();
         return $this->view->render(
             "login",
             [
@@ -58,12 +47,7 @@ class AuthController extends Controller
     public function resetpassword()
     {
         $model = new ResetPassword;
-        if ($this->request->isPost()) {
-            $model->loadData($this->request->body());
-            if ($model->validate() && $model->reset()) {
-                # code...
-            }
-        }
+        $model->resetPassword();
         return $this->view->render(
             'resetpassword',
             [

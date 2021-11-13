@@ -72,3 +72,10 @@ function bootstrap()
     config();
     \restore_error_handler();
 }
+
+
+
+
+
+
+define('ROOTDIR', dirname(__DIR__));

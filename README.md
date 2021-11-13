@@ -9,9 +9,7 @@ Getting Started
 ```
 $ composer create-project imberel/imberel
 ```
-```
-$ composer install
-```
+
 
 
 ## License

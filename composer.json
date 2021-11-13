@@ -8,7 +8,9 @@
     ],
     "license": "MIT",
     "autoload": {
-        "files": [],
+        "files": [
+            "bootstrap/bootstrap.php"
+        ],
         "psr-4": {
             "Imberel\\Imberel\\": "app/"
         }

@@ -70,9 +70,16 @@ class Register extends Model
 
     public function register()
     {
-        $this->userstatus = self::INACTIVE;
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-        return $this->save();
+        if ($this->request->isPost()) {
+            $this->load($this->request->body());
+            if ($this->validate()) {
+                $this->userstatus = self::INACTIVE;
+                $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+                $this->save();
+                $this->response->redirect("/login");
+            }
+        }
+        return;
     }
 
     public function save()
