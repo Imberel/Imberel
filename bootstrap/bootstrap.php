@@ -1,5 +1,7 @@
 <?php
 
+use Imberel\Imberel\Core\Session\DatabaseSession;
+
 function env(mixed $heystack)
 {
     $position = \strpos($heystack, ',');
@@ -18,6 +20,10 @@ function cons(mixed $heystack)
 
 function isession_start()
 {
+    $session = new DatabaseSession;
+    $session->open();
+    $session->write(USER_SESSION_ID);
+    return $session;
 }
 
 function config()
