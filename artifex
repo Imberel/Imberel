@@ -8,8 +8,8 @@ $migration = new Imberel\Imberel\Core\Migration\Migration;
 
 //$migration->create();
 
-//$migration->migrate();
+$migration->migrate();
 
 //$migration->reverse();
 
-$migration->fresh();
+//$migration->fresh();
