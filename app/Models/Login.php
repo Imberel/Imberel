@@ -5,7 +5,6 @@ namespace Imberel\Imberel\Models;
 use Imberel\Imberel\Core\Application\Authenticate;
 use Imberel\Imberel\Core\Session\Session;
 use Imberel\Imberel\Core\Application\Core;
-use Imberel\Imberel\Core\Application\Model;
 
 /**
  *  Class
