@@ -1,12 +1,10 @@
 <?php
 
-define('ROOTDIR', __DIR__);
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 $migration = new Imberel\Imberel\Core\Migration\Migration;
 
-$migration->create();
+//$migration->create();
 
 $migration->migrate();
 
