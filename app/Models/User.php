@@ -3,14 +3,14 @@
 namespace Imberel\Imberel\Models;
 
 use Imberel\Imberel\Core\Application\Core;
-use Imberel\Imberel\Core\Database\Database;
+use Imberel\Imberel\Core\Application\Model;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class User extends Database
+class User extends Model
 {
     public function __construct()
     {
@@ -22,7 +22,7 @@ class User extends Database
         $table = $this->tableName();
         $key = $this->key();
         $userid = Core::$core->session->get();
-        $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $key = :attr");
+        $stmt = $this->prepare("SELECT * FROM $table WHERE $key = :attr");
         $stmt->bindValue(":attr", $userid);
         $stmt->execute();
         return $stmt->fetchObject();

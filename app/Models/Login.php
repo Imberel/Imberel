@@ -2,6 +2,7 @@
 
 namespace Imberel\Imberel\Models;
 
+use Imberel\Imberel\Core\Application\Authenticate;
 use Imberel\Imberel\Core\Session\Session;
 use Imberel\Imberel\Core\Application\Core;
 use Imberel\Imberel\Core\Application\Model;
@@ -11,7 +12,7 @@ use Imberel\Imberel\Core\Application\Model;
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class Login extends Model
+class Login extends Authenticate
 {
     public Session $session;
 
@@ -43,7 +44,7 @@ class Login extends Model
     public function getUser(): object
     {
         $table = $this->tableName();
-        $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE useremail = :attr");
+        $stmt = $this->prepare("SELECT * FROM $table WHERE useremail = :attr");
         $stmt->bindValue(":attr", $this->useremail);
         $stmt->execute();
         return $stmt->fetchObject();

@@ -2,15 +2,15 @@
 
 namespace Imberel\Imberel\Models;
 
+use Imberel\Imberel\Core\Application\Authenticate;
 use Imberel\Imberel\Core\Extra\Random;
-use Imberel\Imberel\Core\Application\Model;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class Register extends Model
+class Register extends Authenticate
 {
     public string $useremail = '';
 
@@ -87,7 +87,7 @@ class Register extends Model
         $table = $this->tableName();
         $attributes = $this->attributes();
         $params = array_map(fn ($attr) => ":$attr", $attributes);
-        $stmt = $this->pdo->prepare("INSERT INTO $table (" . implode(",", $attributes) . ") 
+        $stmt = $this->prepare("INSERT INTO $table (" . implode(",", $attributes) . ") 
         VALUES (" . implode(",", $params) . ")");
         foreach ($attributes as $attibute) {
             $stmt->bindValue(":$attibute", $this->{$attibute});
