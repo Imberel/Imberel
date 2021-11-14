@@ -1,7 +1,5 @@
 <?php
 
-use Imberel\Imberel\Core\Session\DatabaseSession;
-
 function env(mixed $heystack)
 {
     $position = \strpos($heystack, ',');
@@ -20,7 +18,12 @@ function cons(mixed $heystack)
 
 function isession_start()
 {
-    $session = new DatabaseSession;
+    if (\getenv('SESSION_DRIVER') === 'database') {
+        $session = new Imberel\Imberel\Core\Session\DatabaseSession;
+    }
+    if (\getenv('SESSION_DRIVER') === 'files') {
+        $session = new Imberel\Imberel\Core\Session\FileSystemSession;
+    }
     $session->open();
     $session->write(USER_SESSION_ID);
     return $session;

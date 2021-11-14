@@ -13,4 +13,7 @@ return [
 
     cons('USER_SESSION_ID,'
         . $_COOKIE[getenv('SESSID_NAME')]),
+
+    env('SESSION_DRIVER,
+    database')
 ];
