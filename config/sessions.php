@@ -15,5 +15,8 @@ return [
         . $_COOKIE[getenv('SESSID_NAME')]),
 
     env('SESSION_DRIVER,
-    database')
+    database'),
+
+    env('SESSION_DURATION,
+    30'),
 ];

@@ -89,6 +89,4 @@ function bootstrap()
 
 
 
-
-
 define('ROOTDIR', dirname(__DIR__));
