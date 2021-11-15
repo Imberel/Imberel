@@ -1,11 +1,15 @@
 <?php
 
+define('ROOTDIR', dirname(__DIR__));
+
 function env(mixed $heystack)
 {
     $position = \strpos($heystack, ',');
     $key = \substr($heystack, 0, $position);
     $value = \substr($heystack, $position + 1, \strlen($heystack));
-    \putenv(\trim($key) . "=" . \trim($value));
+    if (empty(\getenv($key))) {
+        \putenv(\trim($key) . "=" . \trim($value));
+    }
 }
 
 function cons(mixed $heystack)
@@ -26,6 +30,7 @@ function isession_start()
     }
     $session->open();
     $session->write(USER_SESSION_ID);
+    $session->gc(\intval(\getenv('SESSION_LIFETIME', true)));
     return $session;
 }
 
@@ -80,13 +85,5 @@ function route(Imberel\Imberel\Core\Application\Core $app)
 
 function bootstrap()
 {
-
-    \error_reporting(E_ERROR);
     config();
-    \restore_error_handler();
 }
-
-
-
-
-define('ROOTDIR', dirname(__DIR__));

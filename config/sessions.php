@@ -11,12 +11,12 @@ return [
     env('SESSID_NAME,
     IMBERELSESSID'),
 
-    cons('USER_SESSION_ID,'
-        . $_COOKIE[getenv('SESSID_NAME')]),
-
     env('SESSION_DRIVER,
     database'),
 
-    env('SESSION_DURATION,
-    30'),
+    env('COOKIE_LIFETIME,
+    2592000'),
+
+    env('SESSION_LIFETIME,
+    3600'),
 ];
