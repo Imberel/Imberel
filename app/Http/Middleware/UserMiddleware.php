@@ -14,7 +14,7 @@ class UserMiddleware extends Middleware
 {
     public function handle()
     {
-        if (core()->isGuest()) {
+        if (Core::$core->isGuest()) {
             if (!empty($this->actions)) {
                 throw new \Exception("Forbidden", 403);
             }

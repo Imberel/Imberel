@@ -4,12 +4,11 @@ define('ROOTDIR', dirname(__DIR__));
 
 function collect(mixed $key)
 {
-    return $_ENV[$key] ?? \getenv($key);
+    return \getenv($key) ?? \trim($_ENV[$key]);
 }
 
 function core()
 {
-    return new Imberel\Imberel\Core\Application\Core::$core;
 }
 
 function env(mixed $heystack)
@@ -34,15 +33,14 @@ function cons(mixed $heystack)
 
 function isession_start()
 {
-    if (\collect('SESSION_DRIVER') === 'database') {
+    if (collect('SESSION_DRIVER') === 'database') {
         $session = new Imberel\Imberel\Core\Session\DatabaseSession;
     }
-    if (\collect('SESSION_DRIVER') === 'files') {
+    if (collect('SESSION_DRIVER') === 'files') {
         $session = new Imberel\Imberel\Core\Session\FileSystemSession;
     }
-    $session->open();
     $session->write(USER_SESSION_ID);
-    $session->gc(\intval(\collect('SESSION_LIFETIME', true)));
+    $session->gc(\intval(collect('SESSION_LIFETIME', true)));
     return $session;
 }
 
@@ -94,7 +92,8 @@ function javascript(): string
 
 function route(Imberel\Imberel\Core\Application\Core $app)
 {
-    $router = $app->router;
+
+    $router = $app::$core->router;
     $dir = ROOTDIR . '/routes/';
     $routes = \scandir($dir, \SORT_DESC);
     foreach ($routes as $route) {
