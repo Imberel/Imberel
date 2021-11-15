@@ -25,7 +25,7 @@ class View implements InterfaceView
 
     public function layout(): string
     {
-        $layout = Core::$core->controller->getLayout();
+        $layout = core()->controller->getLayout();
         \ob_start();
         require_once collect('LAYOUTS_DIR') . collect('LAYOUT_PREFIX') . $layout . collect('LAYOUT_EXTENSION');
         return \ob_get_clean();

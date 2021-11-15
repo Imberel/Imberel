@@ -34,6 +34,11 @@ function isession_start()
     return $session;
 }
 
+function core()
+{
+    return Imberel\Imberel\Core\Application\Core::$core;
+}
+
 function config()
 {
     $dir = ROOTDIR . '/config/';

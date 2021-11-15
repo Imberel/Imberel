@@ -35,12 +35,12 @@ class Controller
 
     public function layout(string $layout)
     {
-        Core::$core->controller->setLayout($layout);
+        core()->controller->setLayout($layout);
     }
 
     public function title(string $title)
     {
-        Core::$core->controller->setTitle($title);
+        core()->controller->setTitle($title);
     }
 
     /**

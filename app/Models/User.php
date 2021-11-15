@@ -21,7 +21,7 @@ class User extends Model
     {
         $table = $this->tableName();
         $key = $this->key();
-        $userid = Core::$core->session->get();
+        $userid = core()->session->get();
         $stmt = $this->prepare("SELECT * FROM $table WHERE $key = :attr");
         $stmt->bindValue(":attr", $userid);
         $stmt->execute();
