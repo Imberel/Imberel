@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->title(getenv('APP_NAME') . " | Auth");
+        $this->title(collect('APP_NAME') . " | Auth");
     }
 
     public function register()

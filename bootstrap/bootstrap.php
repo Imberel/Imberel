@@ -2,14 +2,26 @@
 
 define('ROOTDIR', dirname(__DIR__));
 
+function collect(mixed $key)
+{
+    return $_ENV[$key] ?? \getenv($key);
+}
+
+function core()
+{
+    return new Imberel\Imberel\Core\Application\Core::$core;
+}
+
 function env(mixed $heystack)
 {
     $position = \strpos($heystack, ',');
     $key = \substr($heystack, 0, $position);
     $value = \substr($heystack, $position + 1, \strlen($heystack));
-    if (empty(\getenv($key))) {
+    if (empty(collect($key))) {
+        $_ENV[$key] = $value;
         \putenv(\trim($key) . "=" . \trim($value));
     }
+    return;
 }
 
 function cons(mixed $heystack)
@@ -22,15 +34,15 @@ function cons(mixed $heystack)
 
 function isession_start()
 {
-    if (\getenv('SESSION_DRIVER') === 'database') {
+    if (\collect('SESSION_DRIVER') === 'database') {
         $session = new Imberel\Imberel\Core\Session\DatabaseSession;
     }
-    if (\getenv('SESSION_DRIVER') === 'files') {
+    if (\collect('SESSION_DRIVER') === 'files') {
         $session = new Imberel\Imberel\Core\Session\FileSystemSession;
     }
     $session->open();
     $session->write(USER_SESSION_ID);
-    $session->gc(\intval(\getenv('SESSION_LIFETIME', true)));
+    $session->gc(\intval(\collect('SESSION_LIFETIME', true)));
     return $session;
 }
 
@@ -46,28 +58,38 @@ function config()
     }
 }
 
-function css()
+function css(): string
 {
     $dir = ROOTDIR . '/resources/css/';
-    $csss = \scandir($dir, \SORT_DESC);
+    $csss = \scandir($dir, \SCANDIR_SORT_ASCENDING);
     foreach ($csss as $css) {
         if ($css === '.' || $css === '..') {
             continue;
         }
-        require_once $dir . $css;
+        $css .= require_once $dir . $css;
     }
+    return \printf('
+    <style type="text/css">
+    %s
+    </style>
+    ', $css);
 }
 
-function javascript()
+function javascript(): string
 {
     $dir = ROOTDIR . '/resources/javascript/';
-    $javascripts = \scandir($dir, \SORT_DESC);
+    $javascripts = \scandir($dir, \SCANDIR_SORT_ASCENDING);
     foreach ($javascripts as $javascript) {
         if ($javascript === '.' || $javascript === '..') {
             continue;
         }
-        require_once $dir . $javascript;
+        $javascript .= require_once $dir . $javascript;
     }
+    return \printf('
+    <script type="text/javascript">
+    %s
+    </script>
+    ', $javascript);
 }
 
 function route(Imberel\Imberel\Core\Application\Core $app)

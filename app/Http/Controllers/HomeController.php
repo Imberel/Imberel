@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->title(getenv('APP_NAME') . " | " . getenv('APP_DESC'));
+        $this->title(collect('APP_NAME') . " | " . collect('APP_DESC'));
         $this->layout("main");
     }
 
