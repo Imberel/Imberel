@@ -19,8 +19,6 @@ class Core
 
     public Controller $controller;
 
-    public Session $session;
-
     public const BEFORE_REQUEST = "Before Request";
 
     public const AFTER_REQUEST = "After Request";
@@ -31,7 +29,7 @@ class Core
     public function __construct()
     {
         self::$core = $this;
-        $this->session = new Session;
+        $this->session = isession_start();
         $this->router = new Router;
         $this->controller = new Controller;
     }

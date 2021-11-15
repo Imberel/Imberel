@@ -35,7 +35,7 @@ class Session extends Connection implements SessionHandlerInterface
             [$this, "destroy"],
             [$this, "gc"]
         );
-        \session_name(getenv('SESSID_NAME'));
+        \session_name(collect('SESSID_NAME'));
         \session_start();
         \restore_error_handler();
     }
@@ -88,7 +88,7 @@ class Session extends Connection implements SessionHandlerInterface
         $stmt->bindValue(":access", $this->access);
         $stmt->bindValue(":remember", $this->remember);
         $stmt->bindValue(":data", $data);
-        $stmt->bindValue(":user_agent", getenv('HTTP_USER_AGENT'));
+        $stmt->bindValue(":user_agent", collect('HTTP_USER_AGENT'));
         return $stmt->execute();
     }
 
@@ -109,7 +109,7 @@ class Session extends Connection implements SessionHandlerInterface
         $stmt = $this->pdo->prepare($statement);
         $stmt->bindValue(":id", $id);
         $stmt->bindValue(":data", $data);
-        $stmt->bindValue(":user_agent", getenv('HTTP_USER_AGENT'));
+        $stmt->bindValue(":user_agent", collect('HTTP_USER_AGENT'));
         $stmt->bindValue(":access", $this->access);
         $stmt->bindValue(":id", $id);
         return $stmt->execute();

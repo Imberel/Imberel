@@ -85,7 +85,7 @@ class Controller
 
     private function altTitle()
     {
-        return getenv('APP_NAME') . " | " . getenv('APP_DESC');
+        return collect('APP_NAME') . " | " . collect('APP_DESC');
     }
 
     public function middlewares()

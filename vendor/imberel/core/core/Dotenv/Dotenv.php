@@ -301,7 +301,7 @@ class Dotenv
     }
 
     /**
-     * Loading to getenv
+     * Loading to collect
      *
      * @param string $key
      * @param string $value

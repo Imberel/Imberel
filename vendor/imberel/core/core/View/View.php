@@ -19,7 +19,7 @@ class View implements InterfaceView
             $$key = $value;
         }
         \ob_start();
-        require_once \getenv('VIEWS_DIR')  . $view . \getenv('VIEW_EXTENSION');
+        require_once collect('VIEWS_DIR')  . $view . collect('VIEW_EXTENSION');
         return \ob_get_clean();
     }
 
@@ -27,7 +27,7 @@ class View implements InterfaceView
     {
         $layout = Core::$core->controller->getLayout();
         \ob_start();
-        require_once \getenv('LAYOUTS_DIR') . getenv('LAYOUT_PREFIX') . $layout . \getenv('LAYOUT_EXTENSION');
+        require_once collect('LAYOUTS_DIR') . collect('LAYOUT_PREFIX') . $layout . collect('LAYOUT_EXTENSION');
         return \ob_get_clean();
     }
 

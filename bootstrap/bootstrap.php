@@ -16,6 +16,24 @@ function cons(mixed $heystack)
     \define(\trim($key), \trim($value));
 }
 
+function collect(string $key)
+{
+    return \getenv($key);
+}
+
+function isession_start()
+{
+    if (collect('SESSION_DRIVER') === 'database') {
+        $session = new Imberel\Imberel\Core\Session\DatabaseSession;
+    }
+    if (collect('SESSION_DRIVER') === 'files') {
+        $session = new Imberel\Imberel\Core\Session\FilesSystemSession;
+    }
+    $session->write(USER_SESSION_ID);
+    $session->gc(collect('SESSION_LIFETIME'));
+    return $session;
+}
+
 function config()
 {
     $dir = ROOTDIR . '/config/';
@@ -67,10 +85,7 @@ function route(Imberel\Imberel\Core\Application\Core $app)
 
 function bootstrap()
 {
-
-    \error_reporting(E_ERROR);
     config();
-    \restore_error_handler();
 }
 
 

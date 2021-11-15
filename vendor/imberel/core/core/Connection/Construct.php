@@ -74,7 +74,7 @@ class Construct
      */
     public function dbDriver(): string
     {
-        return $this->dbDriver = getenv('DATABASE_DRIVER');
+        return $this->dbDriver = collect('DATABASE_DRIVER');
     }
 
     /**
@@ -84,7 +84,7 @@ class Construct
      */
     public function dbHost(): string
     {
-        return $this->dbHost = getenv('DATABASE_HOST');
+        return $this->dbHost = collect('DATABASE_HOST');
     }
 
     /**
@@ -94,7 +94,7 @@ class Construct
      */
     public function dbPort(): string
     {
-        return $this->dbPort = getenv('DATABASE_PORT');
+        return $this->dbPort = collect('DATABASE_PORT');
     }
 
     /**
@@ -104,7 +104,7 @@ class Construct
      */
     public function dbName(): string
     {
-        return $this->dbName = getenv('DATABASE_NAME');
+        return $this->dbName = collect('DATABASE_NAME');
     }
 
     /**
@@ -114,7 +114,7 @@ class Construct
      */
     public function dbUser(): string
     {
-        return $this->dbUser = getenv('DATABASE_USER');
+        return $this->dbUser = collect('DATABASE_USER');
     }
 
     /**
@@ -124,7 +124,7 @@ class Construct
      */
     public function dbPassword(): string
     {
-        return $this->dbPassword = getenv('DATABASE_PASSWORD');
+        return $this->dbPassword = collect('DATABASE_PASSWORD');
     }
 
     /**
