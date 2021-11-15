@@ -13,12 +13,13 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->title(collect('APP_NAME') . " | " . collect('APP_DESC'));
+        parent::__construct();
+        $this->title(getenv('APP_NAME') . " | " . getenv('APP_DESC'));
         $this->layout("main");
     }
 
     public function home()
     {
-        return $this->render("home");
+        return $this->view->render("home");
     }
 }

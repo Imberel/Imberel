@@ -1,26 +1,11 @@
 <?php
 
-define('ROOTDIR', dirname(__DIR__));
-
-function collect(mixed $key)
-{
-    return \getenv($key) ?? \trim($_ENV[$key]);
-}
-
-function core()
-{
-}
-
 function env(mixed $heystack)
 {
     $position = \strpos($heystack, ',');
     $key = \substr($heystack, 0, $position);
     $value = \substr($heystack, $position + 1, \strlen($heystack));
-    if (empty(collect($key))) {
-        $_ENV[$key] = $value;
-        \putenv(\trim($key) . "=" . \trim($value));
-    }
-    return;
+    \putenv(\trim($key) . "=" . \trim($value));
 }
 
 function cons(mixed $heystack)
@@ -29,19 +14,6 @@ function cons(mixed $heystack)
     $key = \substr($heystack, 0, $position);
     $value = \substr($heystack, $position + 1, \strlen($heystack));
     \define(\trim($key), \trim($value));
-}
-
-function isession_start()
-{
-    if (collect('SESSION_DRIVER') === 'database') {
-        $session = new Imberel\Imberel\Core\Session\DatabaseSession;
-    }
-    if (collect('SESSION_DRIVER') === 'files') {
-        $session = new Imberel\Imberel\Core\Session\FileSystemSession;
-    }
-    $session->write(USER_SESSION_ID);
-    $session->gc(\intval(collect('SESSION_LIFETIME', true)));
-    return $session;
 }
 
 function config()
@@ -56,44 +28,33 @@ function config()
     }
 }
 
-function css(): string
+function css()
 {
     $dir = ROOTDIR . '/resources/css/';
-    $csss = \scandir($dir, \SCANDIR_SORT_ASCENDING);
+    $csss = \scandir($dir, \SORT_DESC);
     foreach ($csss as $css) {
         if ($css === '.' || $css === '..') {
             continue;
         }
-        $css .= require_once $dir . $css;
+        require_once $dir . $css;
     }
-    return \printf('
-    <style type="text/css">
-    %s
-    </style>
-    ', $css);
 }
 
-function javascript(): string
+function javascript()
 {
     $dir = ROOTDIR . '/resources/javascript/';
-    $javascripts = \scandir($dir, \SCANDIR_SORT_ASCENDING);
+    $javascripts = \scandir($dir, \SORT_DESC);
     foreach ($javascripts as $javascript) {
         if ($javascript === '.' || $javascript === '..') {
             continue;
         }
-        $javascript .= require_once $dir . $javascript;
+        require_once $dir . $javascript;
     }
-    return \printf('
-    <script type="text/javascript">
-    %s
-    </script>
-    ', $javascript);
 }
 
 function route(Imberel\Imberel\Core\Application\Core $app)
 {
-
-    $router = $app::$core->router;
+    $router = $app->router;
     $dir = ROOTDIR . '/routes/';
     $routes = \scandir($dir, \SORT_DESC);
     foreach ($routes as $route) {
@@ -106,5 +67,15 @@ function route(Imberel\Imberel\Core\Application\Core $app)
 
 function bootstrap()
 {
+
+    \error_reporting(E_ERROR);
     config();
+    \restore_error_handler();
 }
+
+
+
+
+
+
+define('ROOTDIR', dirname(__DIR__));

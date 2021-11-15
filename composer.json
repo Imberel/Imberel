@@ -24,7 +24,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^8.0",
-        "imberel/framework": "dev-master"
+        "imberel/core": "dev-master"
     },
     "config": {
         "optimize-autoloader": true,

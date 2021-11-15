@@ -1,6 +1,6 @@
 <?php
 
-use Imberel\Imberel\Core\Database\Migration\Migration;
+use Imberel\Imberel\Core\Migration\Migration;
 
 /**
  *  Class
@@ -26,7 +26,7 @@ class HbBF6_2021_11_13_HbBF6XbMZsCuujC extends Migration
     public function up(): void
     {
         $statement = "CREATE TABLE IF NOT EXISTS $this->table (
-                    `id` INT(250) PRIMARY KEY AUTO_INCREMENT,
+                    `id` int(250) PRIMARY KEY AUTO_INCREMENT,
                     `userid` VARCHAR(250) UNIQUE NOT NULL,
                     `useremail` VARCHAR(250) UNIQUE NOT NULL,
                     `resetlink` VARCHAR(250) UNIQUE NOT NULL,

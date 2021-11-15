@@ -3,6 +3,9 @@
 namespace Imberel\Imberel\Models;
 
 use Imberel\Imberel\Core\Application\Authenticate;
+use Imberel\Imberel\Core\Session\Session;
+use Imberel\Imberel\Core\Application\Core;
+use Imberel\Imberel\Core\Application\Model;
 
 /**
  *  Class
@@ -11,6 +14,8 @@ use Imberel\Imberel\Core\Application\Authenticate;
  */
 class Login extends Authenticate
 {
+    public Session $session;
+
     public string $useremail = '';
 
     public string $password = '';
@@ -18,6 +23,7 @@ class Login extends Authenticate
     public function __construct()
     {
         parent::__construct();
+        $this->session = Core::$core->session;
     }
 
     public function login()

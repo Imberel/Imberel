@@ -86,9 +86,9 @@ class Register extends Authenticate
     {
         $table = $this->tableName();
         $attributes = $this->attributes();
-        $params = \array_map(fn ($attr) => ":$attr", $attributes);
-        $stmt = $this->prepare("INSERT INTO $table (" . \implode(",", $attributes) . ") 
-        VALUES (" . \implode(",", $params) . ")");
+        $params = array_map(fn ($attr) => ":$attr", $attributes);
+        $stmt = $this->prepare("INSERT INTO $table (" . implode(",", $attributes) . ") 
+        VALUES (" . implode(",", $params) . ")");
         foreach ($attributes as $attibute) {
             $stmt->bindValue(":$attibute", $this->{$attibute});
         }

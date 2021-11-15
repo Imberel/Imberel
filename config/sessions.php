@@ -2,7 +2,7 @@
 
 return [
 
-    env('SESSION_TABLE,
+    cons('SESSION_TABLE,
     sessions'),
 
     env('HTTP_USER_AGENT,'
@@ -11,12 +11,6 @@ return [
     env('SESSID_NAME,
     IMBERELSESSID'),
 
-    env('SESSION_DRIVER,
-    database'),
-
-    env('COOKIE_LIFETIME,
-    2592000'),
-
-    env('SESSION_LIFETIME,
-    3600'),
+    cons('USER_SESSION_ID,'
+        . $_COOKIE[getenv('SESSID_NAME')]),
 ];

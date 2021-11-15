@@ -1,0 +1,30 @@
+{
+    "name": "imberel/core",
+    "description": "Imberel framework core",
+    "type": "package",
+    "keywords": [
+        "core",
+        "imberel"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Imberel\\Imberel\\Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Binkap S",
+            "email": "real.desert.tiger@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "prefer-stable": true
+}

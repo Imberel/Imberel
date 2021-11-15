@@ -2,14 +2,14 @@
 
 namespace Imberel\Imberel\Models;
 
-use Imberel\Imberel\Core\Application\Authenticate;
+use Imberel\Imberel\Core\Application\Model;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class ResetPassword extends Authenticate
+class ResetPassword extends Model
 {
     public string $useremail = '';
 
