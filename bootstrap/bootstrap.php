@@ -5,7 +5,9 @@ function env(mixed $heystack)
     $position = \strpos($heystack, ',');
     $key = \substr($heystack, 0, $position);
     $value = \substr($heystack, $position + 1, \strlen($heystack));
-    \putenv(\trim($key) . "=" . \trim($value));
+    if (empty(collect($key))) {
+        \putenv(\trim($key) . "=" . \trim($value));
+    }
 }
 
 function cons(mixed $heystack)

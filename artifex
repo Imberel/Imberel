@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$migration = new Imberel\Imberel\Core\Migration\Migration;
+$migration = new Imberel\Imberel\Core\Database\Migration\Migration;
 
 //$migration->create();
 
