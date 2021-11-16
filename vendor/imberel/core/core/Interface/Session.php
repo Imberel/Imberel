@@ -19,7 +19,7 @@ interface Session
 
     public function gc(int $max): bool;
 
-    public function set(string $userid, int $remember): bool;
+    public function set(string $userid): bool;
 
     public function get(): string;
 

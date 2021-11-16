@@ -1,6 +1,8 @@
 <?php
 
-use Imberel\Imberel\Core\Migration\Migration;
+use Imberel\Imberel\Core\Database\Migration\Migration;
+
+
 
 /**
  *  Class

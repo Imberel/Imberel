@@ -11,7 +11,7 @@ use Imberel\Imberel\Core\Response\Response;
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class Model extends Connection
+abstract class Model extends Connection
 {
 
     public Request $request;
@@ -40,4 +40,8 @@ class Model extends Connection
             }
         }
     }
+
+    abstract public function key(): string;
+
+    abstract public function tableName(): string;
 }

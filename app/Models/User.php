@@ -4,13 +4,14 @@ namespace Imberel\Imberel\Models;
 
 use Imberel\Imberel\Core\Application\Core;
 use Imberel\Imberel\Core\Application\Model;
+use Imberel\Imberel\Http\Requests\UserRequest;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class User extends Model
+class User extends UserRequest
 {
     public function __construct()
     {
@@ -26,15 +27,5 @@ class User extends Model
         $stmt->bindValue(":attr", $userid);
         $stmt->execute();
         return $stmt->fetchObject();
-    }
-
-    public function tableName(): string
-    {
-        return 'users';
-    }
-
-    public function key(): string
-    {
-        return "userid";
     }
 }

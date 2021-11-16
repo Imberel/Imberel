@@ -2,6 +2,7 @@
 
 namespace Imberel\Imberel\Core\Session;
 
+use Imberel\Imberel\Core\Extra\ICatch;
 use Imberel\Imberel\Core\Connection\Connection;
 use Imberel\Imberel\Core\Handler\SessionHandler;
 
@@ -87,10 +88,9 @@ class DatabaseSession extends SessionHandler
         $stmt->bindValue(':remember', $this->remember);
         return $stmt->execute();
     }
-    public function set(string $userid, int $remember): bool
+    public function set(string $userid): bool
     {
         $this->userid = $userid;
-        $this->remember = $remember;
         $this->write(USER_SESSION_ID);
         return true;
     }

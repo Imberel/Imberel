@@ -12,10 +12,6 @@ use Imberel\Imberel\Core\Interface\Validation;
  */
 abstract class Validator extends Connection implements Validation
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     public function validate(): mixed
     {
@@ -83,11 +79,7 @@ abstract class Validator extends Connection implements Validation
             $class = $rule['class'];
             $table = $class::tableName();
             $password = 'password';
-            if ($attribute === $password) {
-                $where = 'useremail';
-            } else {
-                $where = $this->key();
-            }
+            $where = $this->key();
             if (!empty($rule['attribute']) && empty($this->errors)) {
                 $stmt = $this->pdo->prepare("SELECT $attribute FROM $table WHERE $where = :attr");
                 $stmt->bindValue(":attr", $rule['attribute']);

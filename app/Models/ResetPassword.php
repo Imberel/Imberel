@@ -2,14 +2,14 @@
 
 namespace Imberel\Imberel\Models;
 
-use Imberel\Imberel\Core\Application\Model;
+use Imberel\Imberel\Http\Requests\ResetPasswordRequest;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class ResetPassword extends Model
+class ResetPassword extends ResetPasswordRequest
 {
     public string $useremail = '';
 
@@ -31,34 +31,8 @@ class ResetPassword extends Model
         return;
     }
 
-    public function tableName(): string
-    {
-        return 'users';
-    }
-
     public function attributes(): array
     {
         return ['useremail', 'password'];
-    }
-
-    public function rules(): array
-    {
-        return [
-            'useremail' => [self::REQUIRED, self::EMAIL, [self::EXISTS, 'class' => self::class]],
-            'password' => [self::REQUIRED, [self::VERIFY, 'class' => self::class, 'attribute' => $this->useremail]]
-        ];
-    }
-
-    public function labels(): array
-    {
-        return [
-            'useremail' => 'Email Address',
-            'password' => 'Password'
-        ];
-    }
-
-    public function key(): string
-    {
-        return "userid";
     }
 }

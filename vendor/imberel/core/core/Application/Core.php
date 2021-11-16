@@ -62,4 +62,9 @@ class Core
 
         return false;
     }
+
+    public function key()
+    {
+        return collect('APP_KEY') ?? 'userid';
+    }
 }
