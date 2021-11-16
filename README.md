@@ -1,4 +1,4 @@
-Imberel FrameWork
+Imberel Framework
 =================
 
 
@@ -15,4 +15,4 @@ $ composer create-project imberel/imberel
 ## License
 
 
-Imberel is open-sourced software licensed under the [MIT license](LICENSE.md).
+Imberel Framework is open-sourced software licensed under the [MIT license](LICENSE.md).
