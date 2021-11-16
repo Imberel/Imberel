@@ -44,7 +44,7 @@ function core()
 function config()
 {
     $dir = ROOTDIR . '/config/';
-    $configs = \scandir($dir, \SORT_DESC);
+    $configs = \scandir($dir, \SCANDIR_SORT_DESCENDING);
     foreach ($configs as $config) {
         if ($config === '.' || $config === '..') {
             continue;
@@ -56,25 +56,29 @@ function config()
 function css()
 {
     $dir = ROOTDIR . '/resources/css/';
-    $csss = \scandir($dir, \SORT_DESC);
+    $csss = \scandir($dir, \SCANDIR_SORT_ASCENDING);
     foreach ($csss as $css) {
         if ($css === '.' || $css === '..') {
             continue;
         }
-        require_once $dir . $css;
+        $css .= require_once $dir . $css;
     }
+
+    return $css;
 }
 
 function javascript()
 {
     $dir = ROOTDIR . '/resources/javascript/';
-    $javascripts = \scandir($dir, \SORT_DESC);
+    $javascripts = \scandir($dir, \SCANDIR_SORT_ASCENDING);
     foreach ($javascripts as $javascript) {
         if ($javascript === '.' || $javascript === '..') {
             continue;
         }
-        require_once $dir . $javascript;
+        $javascript .= require_once $dir . $javascript;
     }
+
+    return $javascript;
 }
 
 function route(Imberel\Imberel\Core\Application\Core $app)
