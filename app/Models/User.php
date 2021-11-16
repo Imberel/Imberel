@@ -13,11 +13,6 @@ use Imberel\Imberel\Http\Requests\UserRequest;
  */
 class User extends UserRequest
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function getUser(): object
     {
         $table = $this->tableName();

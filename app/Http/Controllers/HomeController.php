@@ -11,13 +11,6 @@ use Imberel\Imberel\Core\Application\Controller;
  */
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->title(collect('APP_NAME') . " | " . collect('APP_DESC'));
-        $this->layout("main");
-    }
-
     public function home()
     {
         return $this->view->render("home");

@@ -18,4 +18,7 @@ return [
 
     cons('VIEW_PLACEHOLDER,
         {{content}}'),
+
+    env('DEFAULT_LAYOUT,
+    main'),
 ];
