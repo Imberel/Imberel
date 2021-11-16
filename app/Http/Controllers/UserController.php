@@ -15,7 +15,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(new UserMiddleware());
+        parent::__construct();
+        $this->middleware(new UserMiddleware);
     }
 
 
