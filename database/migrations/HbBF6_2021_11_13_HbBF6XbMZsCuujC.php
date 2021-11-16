@@ -33,7 +33,7 @@ class HbBF6_2021_11_13_HbBF6XbMZsCuujC extends Migration
                     `useremail` VARCHAR(250) UNIQUE NOT NULL,
                     `resetlink` VARCHAR(250) UNIQUE NOT NULL,
                     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    `updated_at` TIMESTAMP
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
         $this->pdo->exec($statement);
         return;

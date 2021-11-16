@@ -35,7 +35,7 @@ class EIWR3_2021_11_13_EIWR3PG22GJxNsx extends Migration
                     `userstatus` TINYINT DEFAULT 0,
                     `password` VARCHAR(250) NOT NULL,
                     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    `updated_at` TIMESTAMP
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
         $this->pdo->exec($statement);
         return;
