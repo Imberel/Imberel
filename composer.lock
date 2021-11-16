@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "032f583c3e8198ab9d06d4f64d89bcce",
+    "content-hash": "46a28948717cccf530fc83602b831af8",
     "packages": [
         {
-            "name": "imberel/core",
+            "name": "imberel/framework",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Imberel/Core.git",
-                "reference": "9f185367205e4cf247019447d97f0d5906a71829"
+                "url": "https://github.com/Imberel/Framework.git",
+                "reference": "3b89c94dc26dff0ce43faa663b68b96d2905dc37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Imberel/Core/zipball/9f185367205e4cf247019447d97f0d5906a71829",
-                "reference": "9f185367205e4cf247019447d97f0d5906a71829",
+                "url": "https://api.github.com/repos/Imberel/Framework/zipball/3b89c94dc26dff0ce43faa663b68b96d2905dc37",
+                "reference": "3b89c94dc26dff0ce43faa663b68b96d2905dc37",
                 "shasum": ""
             },
             "require": {
@@ -40,23 +40,23 @@
                     "email": "real.desert.tiger@gmail.com"
                 }
             ],
-            "description": "Imberel framework core",
+            "description": "Imberel framework",
             "keywords": [
-                "core",
+                "framework",
                 "imberel"
             ],
             "support": {
-                "issues": "https://github.com/Imberel/Core/issues",
-                "source": "https://github.com/Imberel/Core/tree/master"
+                "issues": "https://github.com/Imberel/Framework/issues",
+                "source": "https://github.com/Imberel/Framework/tree/master"
             },
-            "time": "2021-11-13T15:42:33+00:00"
+            "time": "2021-11-15T16:07:27+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "imberel/core": 20
+        "imberel/framework": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
