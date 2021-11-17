@@ -6,8 +6,8 @@ $migration = new Imberel\Imberel\Core\Database\Migration\Migration;
 
 //$migration->create();
 
-$migration->migrate();
+//$migration->migrate();
 
 //$migration->reverse();
 
-//$migration->fresh();
+$migration->fresh();
