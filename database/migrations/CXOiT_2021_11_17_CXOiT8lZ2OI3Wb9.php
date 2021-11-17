@@ -30,6 +30,7 @@ class CXOiT_2021_11_17_CXOiT8lZ2OI3Wb9
                 $table->int('id')->primary(),
                 $table->varchar('userid')->unique(),
                 $table->varchar('useremail')->unique(),
+                $table->varchar('username')->unique(),
                 $table->varchar('firstname')->notnull(),
                 $table->varchar('lastname')->notnull(),
                 $table->tinyint('userstatus')->default(0),
