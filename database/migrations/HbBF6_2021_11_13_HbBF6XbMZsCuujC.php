@@ -1,8 +1,7 @@
 <?php
 
 use Imberel\Imberel\Core\Database\Migration\Migration;
-
-
+use Imberel\Imberel\Core\Database\Schema\Schema;
 
 /**
  *  Class
@@ -46,8 +45,6 @@ class HbBF6_2021_11_13_HbBF6XbMZsCuujC extends Migration
      */
     public function down(): void
     {
-        $statement = "DROP TABLE $this->table";
-        $this->pdo->exec($statement);
-        return;
+        Schema::drop($this->table);
     }
 }

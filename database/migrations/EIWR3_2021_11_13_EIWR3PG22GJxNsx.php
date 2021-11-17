@@ -1,6 +1,7 @@
 <?php
 
 use Imberel\Imberel\Core\Database\Migration\Migration;
+use Imberel\Imberel\Core\Database\Schema\Schema;
 
 /**
  *  Class
@@ -26,7 +27,7 @@ class EIWR3_2021_11_13_EIWR3PG22GJxNsx extends Migration
     public function up(): void
     {
         $statement = "CREATE TABLE IF NOT EXISTS $this->table (
-                    `id` int(250) PRIMARY KEY AUTO_INCREMENT,
+                    `id` INT(250) PRIMARY KEY AUTO_INCREMENT,
                     `userid` VARCHAR(250) UNIQUE NOT NULL,
                     `useremail` VARCHAR(250) UNIQUE NOT NULL,
                     `username` VARCHAR(250) UNIQUE NOT NULL,
@@ -48,8 +49,6 @@ class EIWR3_2021_11_13_EIWR3PG22GJxNsx extends Migration
      */
     public function down(): void
     {
-        $statement = "DROP TABLE $this->table";
-        $this->pdo->exec($statement);
-        return;
+        Schema::drop($this->table);
     }
 }
