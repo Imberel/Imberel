@@ -1,31 +1,7 @@
 <?php
 
-use Imberel\Imberel\Core\Extra\ICatch;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$migration = new Imberel\Imberel\Core\Database\Migration\Migration;
 
-
-try {
-    if ($argv[1] === 'create') {
-        if (empty($argv[2])) {
-            throw new \Exception("Table Name is required. solution: php artifex create tablename");
-        }
-        $migration->create($argv[2]);
-    }
-
-    if ($argv[1] === 'migrate') {
-        $migration->migrate();
-    }
-
-    if ($argv[1] === 'reverse') {
-        $migration->reverse();
-    }
-
-    if ($argv[1] === 'fresh') {
-        $migration->fresh();
-    }
-} catch (\Throwable $th) {
-    new ICatch($th);
-}
+new Imberel\Imberel\Core\Console\Artifex;
