@@ -15,7 +15,7 @@ class UserMiddleware extends Middleware
     {
         if (core()->isGuest()) {
             $this->excecute(function () {
-                throw new \Exception("Forbidden", 403);
+                trigerStatusError('Forbidden', 403);
             });
         }
     }
