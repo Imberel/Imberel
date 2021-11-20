@@ -10,4 +10,7 @@ return [
 
     env('APP_DESC,
     Framework'),
+
+    env('APP_DEBUG,
+    false')
 ];

@@ -34,8 +34,9 @@ class Login extends LoginRequest
     public function getUser(): object
     {
         $table = $this->tableName();
-        $stmt = $this->prepare("SELECT * FROM $table WHERE useremail = :attr");
-        $stmt->bindValue(":attr", $this->useremail);
+        $key = $this->key();
+        $stmt = $this->prepare("SELECT * FROM $table WHERE $key = :attr");
+        $stmt->bindValue(":attr", $this->$key);
         $stmt->execute();
         return $stmt->fetchObject();
     }

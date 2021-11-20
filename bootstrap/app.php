@@ -1,9 +1,6 @@
 <?php
 
-
-new Imberel\Imberel\Core\Dotenv\Dotenv(ROOTDIR . '/.env');
-
-bootstrap();
+config();
 
 $app = new Imberel\Imberel\Core\Application\Core;
 

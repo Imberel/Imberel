@@ -2,6 +2,9 @@
 
 return [
 
+    env('SESSION_DRIVER,
+    database'),
+
     cons('SESSION_TABLE,
     sessions'),
 
