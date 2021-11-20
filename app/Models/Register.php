@@ -30,7 +30,15 @@ class Register extends RegisterRequest
 
     public function attributes(): array
     {
-        return ['userid', 'useremail', 'username', 'firstname', 'lastname', 'userstatus', 'password'];
+        return [
+            'userid' => $this->userid,
+            'useremail' => $this->useremail,
+            'username' => $this->username,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'userstatus' => $this->userstatus,
+            'password' => $this->password
+        ];
     }
 
     public function register()
@@ -42,24 +50,10 @@ class Register extends RegisterRequest
                 $this->password = password_hash($this->password, PASSWORD_DEFAULT);
                 $randid = new Random;
                 $this->userid = $randid->string(10);
-                $this->save();
+                core()->queryDriver->insert($this->tableName(), $this->attributes());
                 $this->response->redirect("/login");
             }
         }
         return;
-    }
-
-    public function save()
-    {
-        $table = $this->tableName();
-        $attributes = $this->attributes();
-        $params = array_map(fn ($attr) => ":$attr", $attributes);
-        $stmt = $this->prepare("INSERT INTO $table (" . implode(",", $attributes) . ") 
-        VALUES (" . implode(",", $params) . ")");
-        foreach ($attributes as $attibute) {
-            $stmt->bindValue(":$attibute", $this->{$attibute});
-        }
-        $stmt->execute();
-        return true;
     }
 }
