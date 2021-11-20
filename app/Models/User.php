@@ -2,8 +2,6 @@
 
 namespace Imberel\Imberel\Models;
 
-use Imberel\Imberel\Core\Application\Core;
-use Imberel\Imberel\Core\Application\Model;
 use Imberel\Imberel\Http\Requests\UserRequest;
 
 /**
