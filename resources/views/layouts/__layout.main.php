@@ -16,17 +16,17 @@
 <body>
     <div class="sidebar">
         <div class="header">
-            <!-- header content here -->
+            <a href="/"><?= collect('APP_NAME'); ?></a>
         </div>
-        <!-- sidebar content here -->
+        <div>
+            <a href="/register"><i class="fa fa-user-plus"></i> Sign Up</a>
+            <a href="/login"><i class="fa fa-sign-in"></i> Sign In</a>
+        </div>
     </div>
     <div class="container">
 
         <?= VIEW_PLACEHOLDER ?>
 
-    </div>
-    <div class="footer">
-        <!-- Footer content here -->
     </div>
     <script type="text/javascript">
     <?php javascript() ?>

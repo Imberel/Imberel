@@ -1,1 +1,1 @@
-<h1>Home Page</h1>
+<h1><?= collect('APP_NAME') . " " . collect('APP_DESC'); ?></h1>

@@ -8,8 +8,8 @@ use Imberel\Imberel\Core\Widget\Html\Form\FormTitle;
 
 
 $form = new Form('post');
-$form->add(new FormTitle('Reset Password'));
-$form->add(new Input($model, 'text', 'Email Address', 'useremail'));
-$form->add(new Button('submit', 'Reset'));
-$form->add(new Link('/register', 'Not Yet Registered ?'));
+$form->add(new FormTitle('Reset Password', 'form-header'));
+$form->add(new Input($model, 'text', 'Email Address', 'useremail', 'auth-input', 'input-icon fa fa-envelope'));
+$form->add(new Link('/register', 'Not Yet Registered ?', 'auth-link'));
+$form->add(new Button('submit', 'Send Link', 'auth-button'));
 $form->render();
