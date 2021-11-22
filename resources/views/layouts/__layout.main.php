@@ -23,7 +23,7 @@
             <a href="/register"><i class="fa fa-user-plus"></i> Sign Up</a>
             <a href="/login"><i class="fa fa-sign-in"></i> Sign In</a>
             <?php else : ?>
-            <a href="/user"><i class="fa fa-user-dash"></i> DashBoard</a>
+            <a href="/user"><i class="fa fa-user"></i> DashBoard</a>
             <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
             <?php endif; ?>
         </div>

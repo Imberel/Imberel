@@ -48,8 +48,7 @@ class Register extends RegisterRequest
             if ($this->validate()) {
                 $this->userstatus = self::INACTIVE;
                 $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-                $randid = new Random;
-                $this->userid = $randid->string(10);
+                $this->userid = Random::string(10);
                 core()->queryDriver->insert($this->table(), $this->attributes());
                 $this->response->redirect("/login");
             }

@@ -28,8 +28,7 @@ class ResetPassword extends ResetPasswordRequest
 
     public function createResetLink(string $userid)
     {
-        $rand = new Random;
-        $link = \uniqid($rand->string(17));
+        $link = \uniqid(Random::string(17));
         $values = [
             'userid' => $userid,
             'useremail' => 'Tiger@imberel.com',
