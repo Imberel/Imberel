@@ -16,7 +16,7 @@
 <body>
     <div class="sidebar">
         <div class="header">
-            <a href="/user"><?= $user->username ?></a>
+            <a href="/user/profile"><?= $user->username ?></a>
         </div>
         <div>
             <a href="/user"><i class="fa fa-user"></i> Dashboard</a>

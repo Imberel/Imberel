@@ -25,6 +25,8 @@ class Login extends LoginRequest
                 $key = core()->key();
                 $value = $user->{$key};
                 core()->session->set($value);
+                $this->useremail = '';
+                $this->password = '';
                 $this->response->redirect("/user");
             }
         }

@@ -9,14 +9,13 @@ use Imberel\Imberel\Core\Application\Authenticate;
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-abstract class PasswordRequest extends Authenticate
+abstract class UsernameRequest extends Authenticate
 {
     public function rules(): array
     {
         return [
+            'username' => [self::VERIFY, [self::MIN, 'min' => 5], [self::MAX, 'max' => 25], [self::UNIQUE, 'class' => self::class]],
             'password' => [self::REQUIRED, [self::VERIFY, 'class' => self::class, 'attribute' => $this->userid]],
-            'newPassword' => [self::REQUIRED, [self::MIN, 'min' => 8]],
-            'confirmPassword' => [self::REQUIRED, [self::MATCH, 'match' => 'newPassword']]
 
         ];
     }
@@ -24,9 +23,8 @@ abstract class PasswordRequest extends Authenticate
     public function labels(): array
     {
         return [
+            'username' => 'Username',
             'password' => 'Password',
-            'newPassword' => 'New Password',
-            'confirmPassword' => 'Confirm Password'
         ];
     }
 

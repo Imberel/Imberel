@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Imberel/Framework.git",
-                "reference": "af5f6db61f81d3d8f799e30905332fca385f7b12"
+                "reference": "262826aa963de5ca802d929f90b9a29232e7a26a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Imberel/Framework/zipball/af5f6db61f81d3d8f799e30905332fca385f7b12",
-                "reference": "af5f6db61f81d3d8f799e30905332fca385f7b12",
+                "url": "https://api.github.com/repos/Imberel/Framework/zipball/262826aa963de5ca802d929f90b9a29232e7a26a",
+                "reference": "262826aa963de5ca802d929f90b9a29232e7a26a",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "issues": "https://github.com/Imberel/Framework/issues",
                 "source": "https://github.com/Imberel/Framework/tree/master"
             },
-            "time": "2021-11-19T02:56:02+00:00"
+            "time": "2021-11-22T14:42:50+00:00"
         }
     ],
     "packages-dev": [],

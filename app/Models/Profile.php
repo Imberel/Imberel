@@ -11,8 +11,6 @@ use Imberel\Imberel\Http\Requests\ProfileRequest;
  */
 class Profile extends ProfileRequest
 {
-    public string $username;
-
     public string $firstname;
 
     public string $lastname;
@@ -26,18 +24,18 @@ class Profile extends ProfileRequest
         return core()->queryDriver->select($this->table(), $this->key(), core()->session->get());
     }
 
-    public function updateUser()
+    public function update()
     {
         $key = $this->key();
         $user = $this->getUser();
         $this->userid = $user->userid;
-        $this->username = $user->username;
         $this->firstname = $user->firstname;
         $this->lastname = $user->lastname;
-        if ($this->request->isPost()) {
+        if ($this->request->isPost() && isset($this->request->body()['updateProfile'])) {
             $this->load($this->request->body());
             if ($this->validate()) {
-                return core()->queryDriver->update($this->table(), $key, $user->{$key}, $this->attributes());
+                core()->queryDriver->update($this->table(), $key, $user->{$key}, $this->attributes());
+                $this->password = '';
             }
         }
     }
@@ -45,7 +43,6 @@ class Profile extends ProfileRequest
     public function attributes(): array
     {
         return [
-            'username' => $this->username,
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
         ];

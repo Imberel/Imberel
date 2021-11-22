@@ -16,14 +16,17 @@ abstract class ProfileRequest extends Authenticate
         return [
             'firstname' => [self::REQUIRED],
             'lastname' => [self::REQUIRED],
-            'username' => [self::VERIFY, [self::MIN, 'min' => 5]],
-            'password' => [self::REQUIRED, [self::VERIFY, 'class' => self::class, 'attribute' => $this->userid]]
+            'password' => [self::REQUIRED, [self::VERIFY, 'class' => self::class, 'attribute' => $this->userid]],
         ];
     }
 
     public function labels(): array
     {
-        return [];
+        return [
+            'firstname' => 'Firstname',
+            'lastname' => 'Lastname',
+            'password' => 'Password',
+        ];
     }
 
     public function table(): string
