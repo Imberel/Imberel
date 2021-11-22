@@ -4,7 +4,7 @@ namespace Imberel\Imberel\Http\Controllers;
 
 use Imberel\Imberel\Models\User;
 use Imberel\Imberel\Core\Application\Controller;
-use Imberel\Imberel\Http\Middleware\UserMiddleware;
+use Imberel\Imberel\Http\Middleware\LoggedIn;
 
 /**
  *  Class
@@ -16,7 +16,7 @@ class UserController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware(new UserMiddleware);
+        $this->middleware(new LoggedIn);
         $this->layout('user');
     }
 

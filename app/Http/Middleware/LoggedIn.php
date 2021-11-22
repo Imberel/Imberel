@@ -9,7 +9,7 @@ use Imberel\Imberel\Core\Application\Middleware;
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class UserMiddleware extends Middleware
+class LoggedIn extends Middleware
 {
     public function handle()
     {
