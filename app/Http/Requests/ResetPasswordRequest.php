@@ -11,7 +11,7 @@ use Imberel\Imberel\Core\Application\Authenticate;
  */
 abstract class ResetPasswordRequest extends Authenticate
 {
-    public function tableName(): string
+    public function table(): string
     {
         return 'users';
     }

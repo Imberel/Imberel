@@ -13,13 +13,7 @@ class User extends UserRequest
 {
     public function getUser(): object
     {
-        $table = $this->tableName();
-        $key = $this->key();
-        $userid = core()->session->get();
-        $stmt = $this->prepare("SELECT * FROM $table WHERE $key = :attr");
-        $stmt->bindValue(":attr", $userid);
-        $stmt->execute();
-        return $stmt->fetchObject();
+        return core()->queryDriver->select($this->table(), $this->key(), core()->session->get());
     }
 
     public function logout()

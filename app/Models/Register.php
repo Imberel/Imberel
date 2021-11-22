@@ -50,7 +50,7 @@ class Register extends RegisterRequest
                 $this->password = password_hash($this->password, PASSWORD_DEFAULT);
                 $randid = new Random;
                 $this->userid = $randid->string(10);
-                core()->queryDriver->insert($this->tableName(), $this->attributes());
+                core()->queryDriver->insert($this->table(), $this->attributes());
                 $this->response->redirect("/login");
             }
         }

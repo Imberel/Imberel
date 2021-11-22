@@ -11,7 +11,7 @@ use Imberel\Imberel\Core\Application\Model;
  */
 abstract class UserRequest extends Model
 {
-    public function tableName(): string
+    public function table(): string
     {
         return 'users';
     }

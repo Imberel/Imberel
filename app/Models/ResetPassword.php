@@ -15,11 +15,6 @@ class ResetPassword extends ResetPasswordRequest
 
     public string $password = '';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function resetPassword()
     {
         if ($this->request->isPost()) {

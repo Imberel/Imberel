@@ -27,7 +27,7 @@ abstract class LoginRequest extends Authenticate
         ];
     }
 
-    public function tableName(): string
+    public function table(): string
     {
         return 'users';
     }
