@@ -14,3 +14,4 @@ $router->post("/login", [AuthController::class, "login"]);
 $router->get("/resetpassword", [AuthController::class, "resetpassword"]);
 $router->post("/resetpassword", [AuthController::class, "resetpassword"]);
 $router->get('/user', [UserController::class, "dashboard"]);
+$router->get('/logout', [UserController::class, "logout"]);

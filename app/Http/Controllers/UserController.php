@@ -17,6 +17,7 @@ class UserController extends Controller
     {
         parent::__construct();
         $this->middleware(new UserMiddleware);
+        $this->layout('user');
     }
 
 
@@ -29,5 +30,11 @@ class UserController extends Controller
                 'user' => $model->getUser()
             ]
         );
+    }
+
+    public function logout()
+    {
+        $model = new User;
+        $model->logout();
     }
 }

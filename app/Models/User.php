@@ -21,4 +21,10 @@ class User extends UserRequest
         $stmt->execute();
         return $stmt->fetchObject();
     }
+
+    public function logout()
+    {
+        core()->session->destroy(USER_SESSION_ID);
+        $this->response->redirect('/login');
+    }
 }
