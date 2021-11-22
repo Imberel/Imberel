@@ -31,6 +31,7 @@ class CreatePassword_resetTable
                 $table->varchar('userid')->unique(),
                 $table->varchar('useremail')->unique(),
                 $table->varchar('resetlink')->unique(),
+                $table->tinyint('linkstatus')->default(0),
                 $table->timestamp('created_at')->currentTime()
             ];
             return $column;
