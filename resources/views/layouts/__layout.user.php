@@ -19,6 +19,8 @@
             <a href="/user"><?= $user->username ?></a>
         </div>
         <div>
+            <a href="/user"><i class="fa fa-user"></i> Dashboard</a>
+            <a href="/user/profile"><i class="fa fa-user"></i> Profile</a>
             <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
     </div>

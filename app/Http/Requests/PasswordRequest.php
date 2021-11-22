@@ -9,25 +9,25 @@ use Imberel\Imberel\Core\Application\Authenticate;
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-abstract class ResetPasswordRequest extends Authenticate
+abstract class PasswordRequest extends Authenticate
 {
-    public function table(): string
-    {
-        return 'password_reset';
-    }
-
     public function rules(): array
     {
         return [
-            //'useremail' => [self::REQUIRED, self::EMAIL, [self::EXISTS, 'class' => self::class]]
+            'useremail' => [self::REQUIRED, self::EMAIL, [self::EXISTS, 'class' => self::class]],
         ];
     }
 
     public function labels(): array
     {
         return [
-            'useremail' => 'Email Address'
+            'useremail' => 'Email Address',
         ];
+    }
+
+    public function table(): string
+    {
+        return 'users';
     }
 
     public function key(): string

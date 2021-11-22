@@ -4,8 +4,8 @@ namespace Imberel\Imberel\Http\Controllers;
 
 use Imberel\Imberel\Models\Login;
 use Imberel\Imberel\Models\Register;
-use Imberel\Imberel\Models\ResetPassword;
 use Imberel\Imberel\Core\Application\Controller;
+use Imberel\Imberel\Models\Password;
 
 /**
  *  Class
@@ -40,10 +40,10 @@ class AuthController extends Controller
 
     public function resetpassword()
     {
-        $model = new ResetPassword;
-        $model->resetPassword();
+        $model = new Password;
+        $model->reset();
         return $this->view->render(
-            'resetpassword',
+            'password',
             [
                 'model' => $model
             ]

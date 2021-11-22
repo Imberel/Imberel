@@ -2,16 +2,16 @@
 
 namespace Imberel\Imberel\Http\Controllers;
 
-use Imberel\Imberel\Models\User;
-use Imberel\Imberel\Core\Application\Controller;
 use Imberel\Imberel\Http\Middleware\LoggedIn;
+use Imberel\Imberel\Core\Application\Controller;
+use Imberel\Imberel\Models\Profile;
 
 /**
  *  Class
  *
  * @author Binkap S <real.desert.tiger@gmail.com>
  */
-class UserController extends Controller
+class ProfileController extends Controller
 {
     public function __construct()
     {
@@ -20,22 +20,16 @@ class UserController extends Controller
         $this->layout('user');
     }
 
-
-    public function dashboard()
+    public function profile()
     {
-        $model = new User;
+        $model = new Profile;
+        $model->updateUser();
         return $this->view->render(
-            'user/dashboard',
+            'user/profile',
             [
-                'user' => $model->getUser()
+                'user' => $model->getUser(),
+                'model' => $model
             ]
         );
-    }
-
-
-    public function logout()
-    {
-        $model = new User;
-        $model->logout();
     }
 }

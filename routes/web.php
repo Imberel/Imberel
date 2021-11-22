@@ -3,6 +3,7 @@
 use Imberel\Imberel\Http\Controllers\AuthController;
 use Imberel\Imberel\Http\Controllers\HomeController;
 use Imberel\Imberel\Http\Controllers\UserController;
+use Imberel\Imberel\Http\Controllers\ProfileController;
 
 
 
@@ -15,3 +16,5 @@ $router->get("/resetpassword", [AuthController::class, "resetpassword"]);
 $router->post("/resetpassword", [AuthController::class, "resetpassword"]);
 $router->get('/user', [UserController::class, "dashboard"]);
 $router->get('/logout', [UserController::class, "logout"]);
+$router->get('/user/profile', [ProfileController::class, "profile"]);
+$router->post('/user/profile', [ProfileController::class, "profile"]);
