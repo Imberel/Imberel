@@ -9,8 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Imberel\\Imberel\\": "app/",
-            "Imberel\\Inseminate\\": "src/"
+            "Imberel\\Imberel\\": "app/"
         }
     },
     "authors": [
