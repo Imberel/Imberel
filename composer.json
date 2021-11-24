@@ -1,0 +1,32 @@
+{
+    "name": "imberel/imberel",
+    "description": "Imberel Framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "imberel"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Imberel\\Imberel\\": "app/",
+            "Imberel\\Inseminate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Binkap S",
+            "email": "real.desert.tiger@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "imberel/inseminate": "dev-master"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "prefer-stable": true
+}
