@@ -1,8 +1,6 @@
 #!/usr/bin/php
 <?php
 
-use Imberel\Inseminate\Artifex\Artifex;
-
 require __DIR__ . '/vendor/autoload.php';
 
-new Artifex;
+artifex();
