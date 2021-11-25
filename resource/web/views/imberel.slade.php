@@ -1,2 +1,1 @@
-<?php
-// 
+<?= collect('APP_NAME') . ' ' . collect('APP_DESC') ?>
