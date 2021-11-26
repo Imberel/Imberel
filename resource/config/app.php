@@ -1,2 +1,7 @@
 <?php
-// todo
+
+return [
+
+    env('DATABASE_DRIVER,
+    mysql')
+];
