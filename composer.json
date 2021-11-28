@@ -7,6 +7,10 @@
         "imberel"
     ],
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/Imberel/Imberel/issues",
+        "source": "https://github.com/Imberel/Imberel/master"
+    },
     "autoload": {
         "psr-4": {
             "Imberel\\Imberel\\": "app/"
