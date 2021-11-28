@@ -18,4 +18,7 @@ return [
 
     env('SESSION_LIFETIME,
     3600'),
+
+    env('SESSION_STORAGE,
+    ' . APP_BASE_PATH . '/runtime/sessions/'),
 ];
