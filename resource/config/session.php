@@ -7,9 +7,6 @@ return [
     env('SESSION_DRIVER,
     database'),
 
-    env('HTTP_USER_AGENT,'
-        . $_SERVER['HTTP_USER_AGENT']),
-
     env('SESSID_NAME,
     IMBERELSESSID'),
 
