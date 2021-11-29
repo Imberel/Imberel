@@ -13,6 +13,6 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return $this->view->render('imberel');
+        return $this->view->render('welcome');
     }
 }
