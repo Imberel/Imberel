@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Imberel\Imberel\Controller;
 
 use Imberel\Inseminate\Application\Controller;
@@ -13,6 +15,12 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return $this->view->render('welcome');
+        return $this->render(
+            'welcome',
+            [
+                'layout' => 'main',
+                'title' => 'Imberel | Welcome'
+            ]
+        );
     }
 }
