@@ -3,4 +3,4 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-artifex();
+artifex()->init(\microtime(true));
