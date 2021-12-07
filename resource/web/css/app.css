@@ -13,3 +13,8 @@ body{
     min-height: 100vh;
     min-width: 100vw;
 }
+.container{
+    font-size: 25px;
+    color: gray;
+    text-transform: uppercase;
+}
