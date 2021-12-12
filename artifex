@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+use function Imberel\Inseminate\Function\artifex;
+
 require __DIR__ . '/vendor/autoload.php';
 
 artifex()->init(\microtime(true));
